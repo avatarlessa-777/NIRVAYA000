@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Rajdhani, Inter } from 'next/font/google'
+import { Rajdhani, Inter, Cormorant_Garamond } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import './globals.css'
@@ -15,6 +15,12 @@ const inter = Inter({
   subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "600"],
   variable: '--font-sans'
+})
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["cyrillic", "latin"],
+  weight: ["400"],
+  variable: '--font-cormorant'
 })
 
 export const metadata: Metadata = {
@@ -47,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className="scroll-smooth">
-      <body className={`${rajdhani.variable} ${inter.variable} font-sans antialiased`}>
+      <body className={`${rajdhani.variable} ${inter.variable} ${cormorant.variable} font-sans antialiased`}>
         <Script 
           src="https://cdn.jsdelivr.net/npm/@mux/mux-player@3/dist/mux-player.min.js" 
           strategy="beforeInteractive"

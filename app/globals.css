@@ -40,6 +40,7 @@
 @theme inline {
   --font-sans: var(--font-sans), 'Inter', system-ui, sans-serif;
   --font-heading: var(--font-heading), 'Rajdhani', system-ui, sans-serif;
+  --font-cormorant: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   
   --color-background: var(--background);
   --color-background-secondary: var(--background-secondary);
@@ -573,4 +574,18 @@
   100% {
     background-position: 200% 50%;
   }
+}
+
+/* Breathing opacity animation for vertical line */
+@keyframes breathing-opacity {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-breathing-opacity {
+  animation: breathing-opacity 3s ease-in-out infinite;
 }

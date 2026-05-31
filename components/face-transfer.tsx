@@ -13,44 +13,71 @@ export function FaceTransfer() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-teal/5 blur-[100px]" />
 
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-14"
-        >
-          <span 
-            className="inline-block font-heading font-normal text-xs tracking-[0.2em] uppercase px-4 py-1.5 rounded-full mb-4 animate-pulse"
-            style={{ 
-              border: "1px solid rgba(200,148,62,0.3)", 
-              background: "rgba(200,148,62,0.05)", 
-              color: "rgba(200,148,62,0.8)",
-              boxShadow: "0 0 20px rgba(200,148,62,0.1)",
-              animationDuration: "3s"
-            }}
-          >
-            Технология сохранения внешности
-          </span>
+        {/* Header with decorative corners */}
+        <div className="relative px-6 py-8 md:px-10 md:py-10 mb-14">
+          {/* Decorative corner lines */}
+          <div className="absolute top-0 left-0 w-8 h-8">
+            <div className="absolute top-0 left-0 w-full h-px" style={{ background: "rgba(200,148,62,0.3)" }}></div>
+            <div className="absolute top-0 left-0 h-full w-px" style={{ background: "rgba(200,148,62,0.3)" }}></div>
+          </div>
+          <div className="absolute top-0 right-0 w-8 h-8">
+            <div className="absolute top-0 right-0 w-full h-px" style={{ background: "rgba(200,148,62,0.3)" }}></div>
+            <div className="absolute top-0 right-0 h-full w-px" style={{ background: "rgba(200,148,62,0.3)" }}></div>
+          </div>
+          <div className="absolute bottom-0 left-0 w-8 h-8">
+            <div className="absolute bottom-0 left-0 w-full h-px" style={{ background: "rgba(200,148,62,0.3)" }}></div>
+            <div className="absolute bottom-0 left-0 h-full w-px" style={{ background: "rgba(200,148,62,0.3)" }}></div>
+          </div>
+          <div className="absolute bottom-0 right-0 w-8 h-8">
+            <div className="absolute bottom-0 right-0 w-full h-px" style={{ background: "rgba(200,148,62,0.3)" }}></div>
+            <div className="absolute bottom-0 right-0 h-full w-px" style={{ background: "rgba(200,148,62,0.3)" }}></div>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-            animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
           >
-            <h2 
-              className="font-heading font-semibold text-3xl md:text-4xl lg:text-5xl uppercase tracking-[0.12em] leading-tight mb-6"
-              style={{
-                textShadow: "0 0 30px rgba(200,148,62,0.3), 0 0 60px rgba(200,148,62,0.15), 0 0 90px rgba(200,148,62,0.05)"
+            <span 
+              className="inline-block font-heading font-normal text-xs tracking-[0.2em] uppercase px-4 py-1.5 rounded-full mb-4 animate-pulse"
+              style={{ 
+                border: "1px solid rgba(200,148,62,0.3)", 
+                background: "rgba(200,148,62,0.05)", 
+                color: "rgba(200,148,62,0.8)",
+                boxShadow: "0 0 20px rgba(200,148,62,0.1)",
+                animationDuration: "3s"
               }}
             >
-              Внешность под контролем
-            </h2>
+              Технология сохранения внешности
+            </span>
+            <motion.div
+              initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+              animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            >
+              <h2 
+                className="font-heading font-semibold text-3xl md:text-4xl lg:text-5xl uppercase tracking-[0.12em] leading-tight mb-6"
+                style={{
+                  textShadow: "0 0 30px rgba(200,148,62,0.3), 0 0 60px rgba(200,148,62,0.15), 0 0 90px rgba(200,148,62,0.05)"
+                }}
+              >
+                Внешность под контролем
+              </h2>
+            </motion.div>
+            <p 
+              className="text-base md:text-lg text-foreground/70 max-w-3xl"
+              style={{ 
+                fontFamily: "'Cormorant Garamond', Georgia, serif", 
+                fontWeight: 400, 
+                wordSpacing: "3px", 
+                lineHeight: "1.8" 
+              }}
+            >
+              Мы сохраняем внешность реального человека в AI-видео с точностью до мельчайших черт. 
+              Технология, которая переносит вас в любой сценарий — без грима, без дублёров, без съёмок.
+            </p>
           </motion.div>
-          <p className="text-foreground/80 text-lg md:text-xl max-w-3xl leading-relaxed">
-            Мы сохраняем внешность реального человека в AI-видео с точностью до мельчайших черт. 
-            Технология, которая переносит вас в любой сценарий — без грима, без дублёров, без съёмок.
-          </p>
-        </motion.div>
+        </div>
 
         {/* Row 1: Video 16:9 + Photo 1:1 */}
         <motion.div

@@ -35,6 +35,13 @@ const stats = [
   },
 ]
 
+// Paragraph content
+const paragraphs = [
+  "Воображение — ваша территория. Воплощение — наша. Мы работаем с людьми, у которых есть видение, и превращаем его в кино. А если видения пока нет — достаточно искры. Одной идеи, ощущения, настроения. Мы раздуем из неё пламя и покажем то, что вы чувствовали, но не могли сформулировать.",
+  "NIRVAYA STUDIO — первая продакшн-студия, разделённая на три самостоятельных отдела: дизайн, AI-генерация и монтаж. Это не просто команда — это пайплайн, отлаженный до секунды. Каждый этап проходит чётко, без задержек, без потерь качества. В каждом отделе — мастер своего дела, и с каждым из них у вас будет прямая связь.",
+  "Максимум внимания. Максимум качества. Максимум включённости. Мы всегда рядом, всегда на связи, всегда говорим на одном языке. Вы для нас — не задача в списке, а человек, с которым мы делаем общее дело. Мы творим вместе, потому что лучшее рождается там, где есть доверие, открытость и общая цель."
+]
+
 // Custom SVG icons for stats
 function StatIcon({ type }: { type: string }) {
   switch (type) {
@@ -130,80 +137,82 @@ export function About() {
 
   return (
     <section id="about" className="py-24 md:py-32 bg-background-secondary relative overflow-hidden">
-      {/* Circuit board background pattern - CHANGE 6 */}
+      {/* Circuit board background pattern */}
       <div className="absolute inset-0 circuit-pattern" />
 
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
-          {/* Text content - 60% */}
-          <div className="lg:col-span-3">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="font-heading font-normal text-gold text-sm tracking-wider mb-4"
-            >
-              О NIRVAYA STUDIO
-            </motion.p>
+        {/* Centered heading with blur reveal */}
+        <motion.h2
+          initial={{ opacity: 0, filter: "blur(12px)" }}
+          animate={isInView ? { opacity: 1, filter: "blur(0px)" } : {}}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="font-heading font-semibold text-3xl md:text-4xl lg:text-5xl uppercase tracking-[0.12em] leading-tight mb-12 text-center"
+        >
+          Мы не используем технологии — мы ими владеем
+        </motion.h2>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-              animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-              className="font-heading font-semibold text-3xl md:text-4xl lg:text-5xl uppercase tracking-[0.12em] leading-tight mb-8"
-            >
-              Мы не используем технологии — мы ими владеем
-            </motion.h2>
+        {/* Glass container with text content */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="relative max-w-[750px] mx-auto mb-16"
+          style={{
+            background: "rgba(14,18,37,0.5)",
+            border: "1px solid rgba(200,148,62,0.08)",
+            backdropFilter: "blur(8px)",
+            borderRadius: "16px",
+            padding: "40px 32px"
+          }}
+        >
+          {/* Breathing vertical line on the left */}
+          <div 
+            className="absolute left-0 top-[10%] h-[80%] w-px animate-breathing-opacity"
+            style={{
+              background: "linear-gradient(to bottom, transparent, rgba(200,148,62,0.4), transparent)"
+            }}
+          />
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6 text-foreground/80 leading-relaxed"
-            >
-              <p>
-                <span className="text-gold font-medium">NIRVAYA STUDIO</span> — продакшн-студия нового формата. Мы — команда из трёх профессионалов, каждый из которых мастер в своей области: дизайн, генерация и монтаж.
-              </p>
-              <p>
-                Мы создаём кинематографичные клипы, рекламные ролики и промо-видео, которые выглядят на миллион — независимо от масштаба бюджета.
-              </p>
-              <p>
-                Наш подход: сочетание классического видеопроизводства, глубокого понимания визуального языка и передовых инструментов, включая AI-генерацию, motion control и профессиональную пост-обработку в DaVinci Resolve. <span className="text-foreground">Мы умеем всё — от живой съёмки до полностью сгенерированных миров.</span>
-              </p>
-              <p>
-                AI для нас — это инструмент, как камера или свет. Не замена мастерства, а его усилитель. Наша ключевая сила — сохранение внешности реального человека в кадре, режиссура каждой сцены и монтаж, который превращает набор кадров в историю с эмоцией и ритмом.
-              </p>
-              <p className="font-heading font-normal italic text-foreground/60">
-                NIRVAYA STUDIO — это несокрушимое качество. Каждый кадр. Каждый проект.
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Image placeholder - 40% */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="lg:col-span-2"
-          >
-            <div className="relative aspect-[3/4] bg-placeholder-bg border border-placeholder-border rounded-sm overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center text-foreground-muted text-sm">
-                Стилизованное изображение
+          {/* Paragraphs with staggered reveal */}
+          <div className="pl-6">
+            {paragraphs.map((text, index) => (
+              <div key={index}>
+                <motion.p
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.2 }}
+                  className="text-foreground/70 text-base md:text-lg"
+                  style={{ 
+                    fontFamily: "'Cormorant Garamond', Georgia, serif", 
+                    fontWeight: 400, 
+                    lineHeight: "1.9", 
+                    wordSpacing: "2px" 
+                  }}
+                >
+                  {text}
+                </motion.p>
+                
+                {/* Divider line between paragraphs (not after last) */}
+                {index < paragraphs.length - 1 && (
+                  <div 
+                    className="my-6 mx-auto w-[60px] h-px animate-breathing-opacity"
+                    style={{ 
+                      background: "linear-gradient(to right, transparent, rgba(200,148,62,0.4), transparent)" 
+                    }}
+                  />
+                )}
               </div>
-              {/* Teal glow effects */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-gold/20 via-transparent to-teal/20 blur-3xl opacity-30" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E1A] via-transparent to-transparent" />
-            </div>
-          </motion.div>
-        </div>
+            ))}
+          </div>
+        </motion.div>
 
-        {/* Stats - CHANGE 3 */}
+        {/* Stats */}
         <motion.div
           ref={statsRef}
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 pt-16 border-t border-gold/10"
+          className="pt-16 border-t border-gold/10"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
