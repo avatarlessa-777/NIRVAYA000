@@ -8,7 +8,7 @@ export function FaceTransfer() {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <section className="py-24 md:py-32 bg-[#0A0E1A] relative overflow-hidden">
+    <section className="py-20 md:py-24 bg-[#0A0E1A] relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-teal/5 blur-[100px]" />
 

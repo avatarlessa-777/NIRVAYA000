@@ -103,6 +103,28 @@ export function Hero() {
         </div>
       </div>
 
+      {/* Text block after banner with blur reveal */}
+      <motion.div 
+        initial={{ opacity: 0, filter: "blur(12px)" }} 
+        whileInView={{ opacity: 1, filter: "blur(0px)" }} 
+        viewport={{ once: true, amount: 0.5 }} 
+        transition={{ duration: 1, ease: "easeOut" }} 
+        className="py-8 md:py-10 flex items-center justify-center" 
+        style={{ background: "var(--background)" }}
+      >
+        <p 
+          style={{ 
+            fontFamily: "'Inter', sans-serif", 
+            fontWeight: 200, 
+            color: "rgba(255,255,255,0.7)", 
+            letterSpacing: "0.25em" 
+          }} 
+          className="text-sm md:text-base lg:text-lg text-center max-w-3xl px-6 uppercase tracking-[0.25em] font-light"
+        >
+          AI-продакшн полного цикла. Клипы. Реклама. Контент. Анимация.
+        </p>
+      </motion.div>
+
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-[15]">
         {particles.map((particle) => (
           <div
@@ -123,19 +145,6 @@ export function Hero() {
       </div>
 
       <div className="relative z-20 mt-12 text-center px-6">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="font-sans text-[1.1rem] mb-8 leading-relaxed"
-          style={{
-            color: '#B0AAA0',
-            letterSpacing: '0.02em',
-          }}
-        >
-          Клипы, рекламные ролики, контент для маркетплейсов, Reels, монтаж — всё в одной студии
-        </motion.p>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

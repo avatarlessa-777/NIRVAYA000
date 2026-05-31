@@ -589,3 +589,20 @@
 .animate-breathing-opacity {
   animation: breathing-opacity 3s ease-in-out infinite;
 }
+
+/* Floating particle animation */
+@keyframes float-particle {
+  0%, 100% {
+    transform: translateY(0px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 0.7;
+  }
+}
+
+.animate-float-particle {
+  animation: float-particle var(--particle-duration, 3s) ease-in-out infinite;
+  animation-delay: var(--particle-delay, 0s);
+}
