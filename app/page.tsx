@@ -15,6 +15,7 @@ import {
   MandalaDivider, 
   VerticalLineDivider 
 } from "@/components/triangle-divider"
+import { FloatingParticlesDivider } from "@/components/floating-particles-divider"
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
       <Services />
       <LotusDivider />
       <Portfolio />
-      <MandalaDivider />
+      <FloatingParticlesDivider />
       <FaceTransfer />
       <VerticalLineDivider />
       <MotionControl />
