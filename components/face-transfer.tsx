@@ -105,11 +105,12 @@ export function FaceTransfer() {
             <mux-player
               playback-id="82b8it1RsNkYbxBQOvDIgH8B28f7kUNzw1501a64pr1w"
               playsinline
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full"
+              style={{ "--controls": "none", objectFit: "cover" }}
             />
           </div>
 
-          {/* Photo placeholder 1:1 */}
+          {/* Photo 1:1 — мужик */}
           <div
             className="relative w-full md:w-[280px] lg:w-[320px] aspect-square rounded-sm overflow-hidden flex-shrink-0 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(200,148,62,0.15)]"
             style={{
@@ -117,12 +118,7 @@ export function FaceTransfer() {
               background: "rgba(14,18,37,0.6)",
             }}
           >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-gold/30">
-                <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M4 20c0-4 4-7 8-7s8 3 8 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-            </div>
+            <img src="/Edit_the_provided_square_2x2_headshot_grid_image_a-1778076486508.png" alt="Face reference male" className="absolute inset-0 w-full h-full object-cover" />
           </div>
         </motion.div>
 
@@ -144,11 +140,12 @@ export function FaceTransfer() {
             <mux-player
               playback-id="rXF01vqCO2S4l4gf7rtzakp9wVrCrLwIWHAObM02tf602A"
               playsinline
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full"
+              style={{ "--controls": "none", objectFit: "cover" }}
             />
           </div>
 
-          {/* Photo placeholder 1:1 */}
+          {/* Photo 1:1 — женщина */}
           <div
             className="relative w-full md:w-[280px] lg:w-[320px] aspect-square rounded-sm overflow-hidden flex-shrink-0 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(200,148,62,0.15)]"
             style={{
@@ -156,12 +153,7 @@ export function FaceTransfer() {
               background: "rgba(14,18,37,0.6)",
             }}
           >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-gold/30">
-                <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M4 20c0-4 4-7 8-7s8 3 8 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-            </div>
+            <img src="/A_professional_2x2_grid_layout_of_four_studio_head-1778952766575.png" alt="Face reference female" className="absolute inset-0 w-full h-full object-cover" />
           </div>
         </motion.div>
       </div>
