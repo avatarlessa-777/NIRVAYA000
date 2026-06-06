@@ -45,7 +45,6 @@ export function Contacts() {
             strokeWidth="1"
             fill="none"
           />
-          {/* Pulsing center dot */}
           <circle
             cx="150"
             cy="170"
@@ -56,6 +55,18 @@ export function Contacts() {
         </svg>
       </div>
 
+      {/* === МОЛЕКУЛА — правый нижний угол === */}
+      <motion.img
+        src="/psilocybin-molecule.png"
+        alt=""
+        aria-hidden="true"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={isInView ? { opacity: 0.7, scale: 1 } : {}}
+        transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+        className="absolute bottom-6 right-6 w-[180px] md:w-[240px] lg:w-[280px] pointer-events-none select-none"
+        style={{ mixBlendMode: "screen" }}
+      />
+
       <div className="max-w-4xl mx-auto px-6 relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -63,10 +74,8 @@ export function Contacts() {
           transition={{ duration: 0.6 }}
           className="text-center relative"
         >
-          {/* Soft radial glow behind heading */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-gold/5 blur-3xl rounded-full pointer-events-none" />
           
-          {/* Heading with extending gold lines */}
           <div className="flex items-center justify-center gap-4 mb-6 relative">
             <motion.div
               initial={{ width: 0 }}
@@ -89,7 +98,6 @@ export function Contacts() {
             Расскажите о вашем проекте — мы ответим в течение 24 часов
           </p>
           
-          {/* Gold gradient breathing line below subtitle */}
           <motion.div
             initial={{ opacity: 0, scaleX: 0 }}
             animate={isInView ? { opacity: 1, scaleX: 1 } : {}}
@@ -107,7 +115,6 @@ export function Contacts() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-col items-center gap-8"
         >
-          {/* Email - larger and bolder */}
           <a
             href="mailto:hello@nirvayastudio.com"
             className="group flex items-center gap-3 text-gold text-2xl md:text-3xl font-bold hover:text-gold/80 transition-colors"
@@ -119,7 +126,6 @@ export function Contacts() {
             </span>
           </a>
 
-          {/* Telegram - larger and bolder */}
           <a
             href="https://t.me/nirvayastudio"
             className="group flex items-center gap-3 text-foreground text-xl md:text-2xl font-semibold hover:text-teal transition-colors"
@@ -128,7 +134,6 @@ export function Contacts() {
             <span>@nirvayastudio</span>
           </a>
 
-          {/* Social links */}
           <div className="flex items-center gap-6 mt-4">
             {socialLinks.map((link, index) => (
               <motion.a
