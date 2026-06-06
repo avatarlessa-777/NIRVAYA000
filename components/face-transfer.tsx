@@ -105,13 +105,13 @@ export function FaceTransfer() {
             <mux-player
               playback-id="82b8it1RsNkYbxBQOvDIgH8B28f7kUNzw1501a64pr1w"
               playsinline
-              style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", width: "100%", height: "100%", position: "absolute", inset: "0" } as any}
+              style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0" } as any}
             />
           </div>
 
           {/* Photo 1:1 — мужик */}
           <div
-            className="relative w-full md:w-[280px] lg:w-[320px] aspect-square rounded-sm overflow-hidden flex-shrink-0 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(200,148,62,0.15)]"
+            className="relative w-full md:w-[200px] lg:w-[240px] aspect-square rounded-sm overflow-hidden flex-shrink-0 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(200,148,62,0.15)]"
             style={{
               border: "1px solid rgba(200,148,62,0.15)",
               background: "rgba(14,18,37,0.6)",
@@ -139,13 +139,13 @@ export function FaceTransfer() {
             <mux-player
               playback-id="rXF01vqCO2S4l4gf7rtzakp9wVrCrLwIWHAObM02tf602A"
               playsinline
-              style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", width: "100%", height: "100%", position: "absolute", inset: "0" } as any}
+              style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0" } as any}
             />
           </div>
 
           {/* Photo 1:1 — женщина */}
           <div
-            className="relative w-full md:w-[280px] lg:w-[320px] aspect-square rounded-sm overflow-hidden flex-shrink-0 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(200,148,62,0.15)]"
+            className="relative w-full md:w-[200px] lg:w-[240px] aspect-square rounded-sm overflow-hidden flex-shrink-0 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(200,148,62,0.15)]"
             style={{
               border: "1px solid rgba(200,148,62,0.15)",
               background: "rgba(14,18,37,0.6)",

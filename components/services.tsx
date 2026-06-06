@@ -110,32 +110,38 @@ export function Services() {
                   
                   {/* Background video or placeholder */}
                   {service.title === "Social Media и Reels" ? (
-                    <mux-player
-                      playback-id="1Xb00owVniaQvFv4lKY6DOWkXbF5dxv3Vvy60101ziufZY"
-                      autoplay="muted"
-                      loop
-                      muted
-                      playsinline
-                      style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", width: "100%", height: "100%", position: "absolute", inset: "0" } as any}
-                    />
+                    <div className="absolute inset-0 overflow-hidden">
+                      <mux-player
+                        playback-id="1Xb00owVniaQvFv4lKY6DOWkXbF5dxv3Vvy60101ziufZY"
+                        autoplay="muted"
+                        loop
+                        muted
+                        playsinline
+                        style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0", aspectRatio: "unset" } as any}
+                      />
+                    </div>
                   ) : service.title === "Рекламные ролики" ? (
-                    <mux-player
-                      playback-id="1Aj00CmAc87EV6VJkmwBcFUA6Hmxr9VXEKJJV52wTiCE"
-                      autoplay="muted"
-                      loop
-                      muted
-                      playsinline
-                      style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", width: "100%", height: "100%", position: "absolute", inset: "0" } as any}
-                    />
+                    <div className="absolute inset-0 overflow-hidden">
+                      <mux-player
+                        playback-id="1Aj00CmAc87EV6VJkmwBcFUA6Hmxr9VXEKJJV52wTiCE"
+                        autoplay="muted"
+                        loop
+                        muted
+                        playsinline
+                        style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0", aspectRatio: "unset" } as any}
+                      />
+                    </div>
                   ) : service.title === "Анимационный контент" ? (
-                    <mux-player
-                      playback-id="hDM1Oi02UMRgCJu3U02YwvVRwtcKH2XAIj01501oLmLLQ02A"
-                      autoplay="muted"
-                      loop
-                      muted
-                      playsinline
-                      style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", width: "100%", height: "100%", position: "absolute", inset: "0" } as any}
-                    />
+                    <div className="absolute inset-0 overflow-hidden">
+                      <mux-player
+                        playback-id="hDM1Oi02UMRgCJu3U02YwvVRwtcKH2XAIj01501oLmLLQ02A"
+                        autoplay="muted"
+                        loop
+                        muted
+                        playsinline
+                        style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0", aspectRatio: "unset" } as any}
+                      />
+                    </div>
                   ) : null}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0A0E1A]/90" />
                   
