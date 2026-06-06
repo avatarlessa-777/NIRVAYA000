@@ -55,18 +55,6 @@ export function Contacts() {
         </svg>
       </div>
 
-      {/* === МОЛЕКУЛА — правый нижний угол === */}
-      <motion.img
-        src="/psilocybin-molecule.png"
-        alt=""
-        aria-hidden="true"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={isInView ? { opacity: 0.7, scale: 1 } : {}}
-        transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
-        className="absolute bottom-6 right-6 w-[180px] md:w-[240px] lg:w-[280px] pointer-events-none select-none"
-        style={{ mixBlendMode: "screen" }}
-      />
-
       <div className="max-w-4xl mx-auto px-6 relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
