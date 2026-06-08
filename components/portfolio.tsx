@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useCallback } from "react"
+import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 
 declare global {
@@ -42,44 +42,6 @@ const styles = [
     description: "Вековые традиции в цифровом формате",
   },
 ]
-
-function HoverVideo({ playbackId }: { playbackId: string }) {
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  const handleMouseEnter = useCallback(() => {
-    if (!containerRef.current) return
-    const player = containerRef.current.querySelector("mux-player") as any
-    if (player && player.play) {
-      player.play().catch(() => {})
-    }
-  }, [])
-
-  const handleMouseLeave = useCallback(() => {
-    if (!containerRef.current) return
-    const player = containerRef.current.querySelector("mux-player") as any
-    if (player && player.pause) {
-      player.pause()
-    }
-  }, [])
-
-  return (
-    <div
-      ref={containerRef}
-      className="absolute inset-0"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <mux-player
-        playback-id={playbackId}
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0" } as any}
-      />
-    </div>
-  )
-}
 
 export function Portfolio() {
   const ref = useRef(null)
@@ -137,13 +99,13 @@ export function Portfolio() {
               <motion.div key={style.title} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.4 + index * 0.08 }} className="group cursor-pointer">
                 <div className="relative aspect-video rounded-sm overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(200,148,62,0.15)]" style={{ border: "1px solid rgba(200,148,62,0.15)", background: "rgba(14,18,37,0.6)" }}>
                   {style.title === "Аниме" ? (
-                    <HoverVideo playbackId="ruEc7RibKqYuEgHZOCr02neU023n2NapHQURUhmmAiMXs" />
+                    <mux-player playback-id="ruEc7RibKqYuEgHZOCr02neU023n2NapHQURUhmmAiMXs" autoplay="muted" loop muted playsinline style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0" } as any} />
                   ) : style.title === "Пластилин" ? (
-                    <HoverVideo playbackId="01L3006COFbi91OPfx00j2pvvrbgqrj01GVBV7R3gYEDhhI" />
+                    <mux-player playback-id="01L3006COFbi91OPfx00j2pvvrbgqrj01GVBV7R3gYEDhhI" autoplay="muted" loop muted playsinline style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0" } as any} />
                   ) : style.title === "Pixar" ? (
-                    <HoverVideo playbackId="bLr2WJ4bPA01IiKZHdWQzjj244ucRE5972JdqCWGdpFk" />
+                    <mux-player playback-id="bLr2WJ4bPA01IiKZHdWQzjj244ucRE5972JdqCWGdpFk" autoplay="muted" loop muted playsinline style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0" } as any} />
                   ) : style.title === "Палех" ? (
-                    <HoverVideo playbackId="MNzC02eJ7sIJqlgGjDO8lJ02PBsBe6d9A92OqJz7XkmXo" />
+                    <mux-player playback-id="MNzC02eJ7sIJqlgGjDO8lJ02PBsBe6d9A92OqJz7XkmXo" autoplay="muted" loop muted playsinline style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0" } as any} />
                   ) : null}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E1A] via-[#0A0E1A]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
