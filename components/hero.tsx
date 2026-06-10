@@ -68,6 +68,8 @@ export function Hero() {
               loop
               muted
               playsinline
+              min-resolution="720p"
+              rendition-order="desc"
               style={{ width: '100%', height: '100%', border: 'none', '--controls': 'none' } as React.CSSProperties}
             />
           </div>
