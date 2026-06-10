@@ -5,9 +5,7 @@ import { motion, useInView } from "framer-motion"
 import { Mail, Send } from "lucide-react"
 
 const socialLinks = [
-  { name: "Instagram", href: "#" },
   { name: "YouTube", href: "#" },
-  { name: "Telegram", href: "#" },
   { name: "VK", href: "#" },
 ]
 
@@ -83,7 +81,7 @@ export function Contacts() {
           </div>
           
           <p className="font-heading font-normal text-foreground-muted text-lg md:text-xl mb-4">
-            Расскажите о вашем проекте — мы ответим в течение 24 часов
+            Расскажите о вашем проекте — мы ответим в течение 12 часов
           </p>
           
           <motion.div

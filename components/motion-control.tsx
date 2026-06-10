@@ -73,38 +73,35 @@ export function MotionControl() {
           <div className="grid grid-cols-2 md:grid-cols-[200px_200px_1fr] gap-4 items-start">
             {/* Video 9:16 #1 */}
             <div className="relative aspect-[9/16] rounded-sm overflow-hidden" style={{ border: "1px solid rgba(200,148,62,0.15)", background: "rgba(14,18,37,0.6)" }}>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center">
-                  <div className="w-0 h-0 border-l-[6px] border-l-gold/60 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent ml-0.5" />
-                </div>
-              </div>
-              <div className="absolute bottom-2 left-2 right-2 text-center">
-                <span className="text-foreground-muted text-[10px] font-heading tracking-wider">9:16</span>
-              </div>
+              <mux-player
+                playback-id="FHmxOJHp01hhH2M5FKLiFPMy5GtFxOqQQyKAqCZoZNyY"
+                muted
+                playsinline
+                preload="auto"
+                style={{ "--media-object-fit": "cover", "--media-object-position": "center", width: "100%", height: "100%", position: "absolute", inset: "0" } as any}
+              />
             </div>
 
             {/* Video 9:16 #2 */}
             <div className="relative aspect-[9/16] rounded-sm overflow-hidden" style={{ border: "1px solid rgba(200,148,62,0.15)", background: "rgba(14,18,37,0.6)" }}>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center">
-                  <div className="w-0 h-0 border-l-[6px] border-l-gold/60 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent ml-0.5" />
-                </div>
-              </div>
-              <div className="absolute bottom-2 left-2 right-2 text-center">
-                <span className="text-foreground-muted text-[10px] font-heading tracking-wider">9:16</span>
-              </div>
+              <mux-player
+                playback-id="02O2KB8lrLQ7yU9sOSVUECFQGCe6vq1rpI8Krd00sqd2c"
+                muted
+                playsinline
+                preload="auto"
+                style={{ "--media-object-fit": "cover", "--media-object-position": "center", width: "100%", height: "100%", position: "absolute", inset: "0" } as any}
+              />
             </div>
 
             {/* Video 16:9 */}
             <div className="relative col-span-2 md:col-span-1 aspect-video md:aspect-auto md:h-full rounded-sm overflow-hidden" style={{ border: "1px solid rgba(200,148,62,0.15)", background: "rgba(14,18,37,0.6)" }}>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center">
-                  <div className="w-0 h-0 border-l-[6px] border-l-gold/60 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent ml-0.5" />
-                </div>
-              </div>
-              <div className="absolute bottom-2 left-2 right-2 text-center">
-                <span className="text-foreground-muted text-[10px] font-heading tracking-wider">16:9</span>
-              </div>
+              <mux-player
+                playback-id="DTLDScb801jLdl1o6J12AyhekVBiqRCF6D02j00gB4TvIY"
+                muted
+                playsinline
+                preload="auto"
+                style={{ "--media-object-fit": "cover", "--media-object-position": "center", width: "100%", height: "100%", position: "absolute", inset: "0" } as any}
+              />
             </div>
           </div>
         </motion.div>

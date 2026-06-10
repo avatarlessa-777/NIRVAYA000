@@ -82,7 +82,6 @@ function StyleCard({
         const el = playerRef.current as any
         if (el) {
           el.pause?.()
-          el.currentTime = 0
         }
       }}
     >
@@ -97,6 +96,7 @@ function StyleCard({
             muted
             playsinline
             preload="auto"
+            thumbnail-time="2"
             style={
               {
                 "--media-object-fit": "cover",

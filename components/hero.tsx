@@ -35,7 +35,7 @@ function generateParticles(count: number) {
 }
 
 const playbackIds = [
-  "7H97SoRVUHC2kJ01duXqdmc1gsGaupSh01ijVcOQuSi1k",
+  "vBqKHkSuqsQy1W8WX7GX71fUB6Rqhmo4FoP6ntAVouE",
 ]
 
 export function Hero() {
@@ -63,7 +63,7 @@ export function Hero() {
             }}
           >
             <mux-player
-              playback-id="7H97SoRVUHC2kJ01duXqdmc1gsGaupSh01ijVcOQuSi1k"
+              playback-id="vBqKHkSuqsQy1W8WX7GX71fUB6Rqhmo4FoP6ntAVouE"
               autoplay="muted"
               loop
               muted
