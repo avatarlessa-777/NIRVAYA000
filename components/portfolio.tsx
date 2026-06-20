@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import { useLanguage } from "@/lib/useLanguage"
 
 declare global {
   namespace JSX {
@@ -11,23 +12,12 @@ declare global {
   }
 }
 
-const styles = [
-  {
-    title: "Аниме",
-    description: "Дух японской анимации в новом прочтении",
-  },
-  {
-    title: "Пластилин",
-    description: "Тактильный мир, оживший на экране",
-  },
-  {
-    title: "Pixar",
-    description: "Мировой стандарт анимации — без студии в Калифорнии",
-  },
-  {
-    title: "Палех",
-    description: "Вековые традиции в цифровом формате",
-  },
+// Playback IDs keyed by style index (order matches translations)
+const stylePlaybackIds = [
+  "ruEc7RibKqYuEgHZOCr02neU023n2NapHQURUhmmAiMXs", // Anime
+  "01L3006COFbi91OPfx00j2pvvrbgqrj01GVBV7R3gYEDhhI", // Claymation
+  "bLr2WJ4bPA01IiKZHdWQzjj244ucRE5972JdqCWGdpFk", // Pixar
+  "MNzC02eJ7sIJqlgGjDO8lJ02PBsBe6d9A92OqJz7XkmXo", // Palekh
 ]
 
 function StyleCard({
@@ -41,16 +31,7 @@ function StyleCard({
 }) {
   const playerRef = useRef<HTMLElement>(null)
 
-  const playbackId =
-    style.title === "Аниме"
-      ? "ruEc7RibKqYuEgHZOCr02neU023n2NapHQURUhmmAiMXs"
-      : style.title === "Пластилин"
-        ? "01L3006COFbi91OPfx00j2pvvrbgqrj01GVBV7R3gYEDhhI"
-        : style.title === "Pixar"
-          ? "bLr2WJ4bPA01IiKZHdWQzjj244ucRE5972JdqCWGdpFk"
-          : style.title === "Палех"
-            ? "MNzC02eJ7sIJqlgGjDO8lJ02PBsBe6d9A92OqJz7XkmXo"
-            : null
+  const playbackId = stylePlaybackIds[index] ?? null
 
   return (
     <motion.div
@@ -118,13 +99,15 @@ export function Portfolio() {
   const isInView = useInView(ref, { once: true, amount: 0.1 })
   const stylesRef = useRef(null)
   const stylesInView = useInView(stylesRef, { once: true, amount: 0.3 })
+  const t = useLanguage((s) => s.t)
+  const styles = t.portfolio.styles
 
   return (
     <section id="portfolio" className="py-24 md:py-32 bg-[#0A0E1A] relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.02]" style={{ background: "linear-gradient(180deg, var(--teal) 0%, transparent 50%)" }} />
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
         <div className="mb-16 text-center">
-          <motion.h2 initial={{ opacity: 0, filter: "blur(20px)" }} animate={isInView ? { opacity: 1, filter: "blur(0px)" } : {}} transition={{ duration: 1.2, ease: "easeOut" }} className="font-heading font-semibold text-4xl md:text-6xl uppercase tracking-[0.2em]">DEMO REEL</motion.h2>
+          <motion.h2 initial={{ opacity: 0, filter: "blur(20px)" }} animate={isInView ? { opacity: 1, filter: "blur(0px)" } : {}} transition={{ duration: 1.2, ease: "easeOut" }} className="font-heading font-semibold text-4xl md:text-6xl uppercase tracking-[0.2em]">{t.portfolio.heading}</motion.h2>
           <motion.div initial={{ scaleX: 0 }} animate={isInView ? { scaleX: 1 } : {}} transition={{ duration: 0.8, delay: 0.8 }} className="w-[80px] h-px mx-auto mt-4" style={{ background: "linear-gradient(to right, transparent, #C8943E, transparent)" }} />
         </div>
         <div className="grid md:grid-cols-2 gap-6 mb-16">
@@ -156,7 +139,7 @@ export function Portfolio() {
             </div>
             <div className="mt-4 flex justify-center">
               <div className="px-6 py-3 rounded-lg text-center" style={{ background: "rgba(14,18,37,0.7)", border: "1px solid rgba(200,148,62,0.15)", backdropFilter: "blur(12px)" }}>
-                <h3 className="font-heading font-semibold text-lg md:text-xl uppercase tracking-[0.15em] text-gold">Музыкальные клипы</h3>
+                <h3 className="font-heading font-semibold text-lg md:text-xl uppercase tracking-[0.15em] text-gold">{t.portfolio.musicVideos}</h3>
               </div>
             </div>
           </motion.div>
@@ -189,7 +172,7 @@ export function Portfolio() {
             </div>
             <div className="mt-4 flex justify-center">
               <div className="px-6 py-3 rounded-lg text-center" style={{ background: "rgba(14,18,37,0.7)", border: "1px solid rgba(200,148,62,0.15)", backdropFilter: "blur(12px)" }}>
-                <h3 className="font-heading font-semibold text-lg md:text-xl uppercase tracking-[0.15em] text-gold">Рекламные ролики</h3>
+                <h3 className="font-heading font-semibold text-lg md:text-xl uppercase tracking-[0.15em] text-gold">{t.portfolio.commercials}</h3>
               </div>
             </div>
           </motion.div>
@@ -203,12 +186,12 @@ export function Portfolio() {
 
           <div ref={stylesRef} className="text-center mb-10">
             <motion.div initial={{ opacity: 0, filter: "blur(12px)" }} animate={stylesInView ? { opacity: 1, filter: "blur(0px)" } : {}} transition={{ duration: 1 }}>
-              <h3 className="font-heading font-semibold text-2xl md:text-4xl uppercase tracking-[0.15em] styles-gradient-text">Стили</h3>
-              <p className="text-foreground/50 text-sm md:text-base mt-3 max-w-md mx-auto">Каждый стиль — это отдельная вселенная. Выбирайте эстетику, а мы воплотим.</p>
+              <h3 className="font-heading font-semibold text-2xl md:text-4xl uppercase tracking-[0.15em] styles-gradient-text">{t.portfolio.stylesHeading}</h3>
+              <p className="text-foreground/50 text-sm md:text-base mt-3 max-w-md mx-auto">{t.portfolio.stylesSubtitle}</p>
             </motion.div>
             <div className="flex justify-center mt-5 mb-10">
               <div className="px-5 py-2.5 rounded-full" style={{ background: "rgba(14,18,37,0.7)", border: "1px solid rgba(200,148,62,0.12)", backdropFilter: "blur(10px)" }}>
-                <p style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontStyle: "italic" }} className="text-foreground/60 text-sm md:text-base">4 примера из бесконечности вариантов</p>
+                <p style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontStyle: "italic" }} className="text-foreground/60 text-sm md:text-base">{t.portfolio.stylesNote}</p>
               </div>
             </div>
           </div>

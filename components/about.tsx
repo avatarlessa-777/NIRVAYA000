@@ -2,44 +2,14 @@
 
 import { useRef, useEffect, useState } from "react"
 import { motion, useInView } from "framer-motion"
+import { useLanguage } from "@/lib/useLanguage"
 
-// Stats with custom icons
-const stats = [
-  { 
-    number: 50, 
-    suffix: "+", 
-    label: "проектов реализовано",
-    icon: "triangle"
-  },
-  { 
-    number: 0, 
-    suffix: "", 
-    label: "Воплотим любую идею",
-    icon: "infinity",
-    isSymbol: false,
-    symbol: null
-  },
-  { 
-    number: 0, 
-    suffix: "", 
-    label: "Не считаем правки — считаем качество",
-    icon: "diamond",
-    isSymbol: true,
-    symbol: "◆"
-  },
-  { 
-    number: 360, 
-    suffix: "°", 
-    label: "Полный цикл — от идеи до экрана",
-    icon: "cycle"
-  },
-]
-
-// Paragraph content
-const paragraphs = [
-  "Воображение — ваша территория. Воплощение — наша. Мы работаем с людьми, у которых есть видение, и превращаем его в кино. А если видения пока нет — достаточно искры. Одной идеи, ощущения, настроения. Мы раздуем из неё пламя и покажем то, что вы чувствовали, но не могли сформулировать.",
-  "NIRVAYA STUDIO — первая продакшн-студия, разделённая на три самостоятельных отдела: дизайн, AI-генерация и монтаж. Это не просто команда — это пайплайн, отлаженный до секунды. Каждый этап проходит чётко, без задержек, без потерь качества. В каждом отделе — мастер своего дела, и с каждым из них у вас будет прямая связь.",
-  "Максимум внимания. Максимум качества. Максимум включённости. Мы всегда рядом, всегда на связи, всегда говорим на одном языке. Вы для нас — не задача в списке, а человек, с которым мы делаем общее дело. Мы творим вместе, потому что лучшее рождается там, где есть доверие, открытость и общая цель."
+// Stat config (visuals). Labels come from translations by index.
+const statConfig = [
+  { number: 50, suffix: "+", icon: "triangle", isSymbol: false, symbol: null },
+  { number: 0, suffix: "", icon: "infinity", isSymbol: false, symbol: null },
+  { number: 0, suffix: "", icon: "diamond", isSymbol: true, symbol: "◆" },
+  { number: 360, suffix: "°", icon: "cycle", isSymbol: false, symbol: null },
 ]
 
 // Custom SVG icons for stats
@@ -124,6 +94,15 @@ export function About() {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const statsInView = useInView(statsRef, { once: true, amount: 0.5 })
   const [showLines, setShowLines] = useState(false)
+  const t = useLanguage((s) => s.t)
+  const paragraphs = t.about.paragraphs
+  const statLabels = [
+    t.about.stats.projects,
+    t.about.stats.anyIdea,
+    t.about.stats.quality,
+    t.about.stats.fullCycle,
+  ]
+  const stats = statConfig.map((config, i) => ({ ...config, label: statLabels[i] }))
 
   // Show stat lines after count-up animation completes
   useEffect(() => {
@@ -156,7 +135,7 @@ export function About() {
               animation: "pulse 3s ease-in-out infinite"
             }}
           >
-            О Nirvaya Studio
+            {t.about.badge}
           </motion.span>
         </div>
 

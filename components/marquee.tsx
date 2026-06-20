@@ -1,22 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
-
-const marqueeItems = [
-  "КЛИПЫ",
-  "РЕКЛАМА",
-  "ПРОМО",
-  "AMAZON",
-  "WILDBERRIES",
-  "REELS",
-  "КОММЕРЦИЯ",
-  "MOTION CONTROL",
-  "AI PRODUCTION",
-  "NIRVAYA STUDIO",
-]
+import { useLanguage } from "@/lib/useLanguage"
 
 export function Marquee() {
-  const content = marqueeItems.join(" — ")
+  const t = useLanguage((s) => s.t)
+  const content = t.marquee.join(" — ")
   
   return (
     <section className="py-8 border-y border-gold/10 overflow-hidden bg-[#0A0E1A]">

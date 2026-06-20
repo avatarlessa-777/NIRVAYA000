@@ -1,15 +1,18 @@
 "use client"
 
 import { motion } from "framer-motion"
-
-const footerLinks = [
-  { href: "#services", label: "Услуги" },
-  { href: "#portfolio", label: "Портфолио" },
-  { href: "#about", label: "О студии" },
-  { href: "#contacts", label: "Контакты" },
-]
+import { useLanguage } from "@/lib/useLanguage"
 
 export function Footer() {
+  const t = useLanguage((s) => s.t)
+
+  const footerLinks = [
+    { href: "#services", label: t.nav.services },
+    { href: "#portfolio", label: t.nav.portfolio },
+    { href: "#about", label: t.nav.about },
+    { href: "#contacts", label: t.nav.contacts },
+  ]
+
   return (
     <footer className="bg-[#0A0E1A] relative">
       {/* Golden divider line */}
@@ -54,7 +57,7 @@ export function Footer() {
             transition={{ delay: 0.2 }}
             className="font-heading font-normal italic text-foreground-muted text-sm"
           >
-            От замысла к сиянию
+            {t.footer.tagline}
           </motion.p>
         </div>
       </div>
