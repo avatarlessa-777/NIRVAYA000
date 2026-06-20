@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import { useLanguage } from "@/lib/useLanguage"
 
 declare global {
   namespace JSX {
@@ -14,6 +15,7 @@ declare global {
 export function FaceTransfer() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const t = useLanguage((s) => s.t)
 
   return (
     <section className="py-20 md:py-24 bg-[#0A0E1A] relative overflow-hidden">
@@ -56,7 +58,7 @@ export function FaceTransfer() {
                 animationDuration: "3s"
               }}
             >
-              Технология сохранения внешности
+              {t.faceTransfer.badge}
             </span>
             <motion.div
               initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
@@ -69,7 +71,7 @@ export function FaceTransfer() {
                   textShadow: "0 0 30px rgba(200,148,62,0.3), 0 0 60px rgba(200,148,62,0.15), 0 0 90px rgba(200,148,62,0.05)"
                 }}
               >
-                Внешность под контролем
+                {t.faceTransfer.heading}
               </h2>
             </motion.div>
             <p 
@@ -81,8 +83,7 @@ export function FaceTransfer() {
                 lineHeight: "1.8" 
               }}
             >
-              Мы сохраняем внешность реального человека в AI-видео с точностью до мельчайших черт. 
-              Технология, которая переносит вас в любой сценарий — без грима, без дублёров, без съёмок.
+              {t.faceTransfer.description}
             </p>
           </motion.div>
         </div>

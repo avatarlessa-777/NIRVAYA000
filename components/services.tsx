@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import { useLanguage } from "@/lib/useLanguage"
 
 declare global {
   namespace JSX {
@@ -11,28 +12,19 @@ declare global {
   }
 }
 
-const services = [
-  {
-    title: "Рекламные ролики",
-    description: "Коммерческая реклама для брендов, продуктов и сервисов — дорого, масштабно, эффективно",
-  },
-  {
-    title: "Промо для маркетплейсов",
-    description: "Видео-карточки и ролики для Amazon, Wildberries, Ozon — продающий визуал нового уровня",
-  },
-  {
-    title: "Social Media и Reels",
-    description: "Короткие вертикальные ролики для Instagram, TikTok, YouTube Shorts — цепляющие с первой секунды",
-  },
-  {
-    title: "Анимационный контент",
-    description: "2D и 3D анимация, моушн-дизайн, визуальные эффекты — оживляем любую идею в движении",
-  },
+// Playback IDs keyed by card index (order matches translations)
+const servicePlaybackIds = [
+  "1Aj00CmAc87EV6VJkmwBcFUA6Hmxr9VXEKJJV52wTiCE", // Commercials
+  "EuFoWgbebfKudcfyfa1KjCQIlIaKSTKrAUDnFPCIvmA", // Marketplace Promos
+  "1Xb00owVniaQvFv4lKY6DOWkXbF5dxv3Vvy60101ziufZY", // Social Media & Reels
+  "hDM1Oi02UMRgCJu3U02YwvVRwtcKH2XAIj01501oLmLLQ02A", // Animation Content
 ]
 
 export function Services() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const t = useLanguage((s) => s.t)
+  const services = t.services.cards
 
   return (
     <section id="services" className="py-24 md:py-32 bg-background-secondary relative overflow-hidden">
@@ -64,12 +56,12 @@ export function Services() {
                 e.currentTarget.style.WebkitTextFillColor = "transparent"
               }}
             >
-              ВИЗУАЛЬНЫЙ ПРОДАКШН
+              {t.services.heading}
             </motion.h2>
           </div>
           
           <p className="font-heading font-normal text-foreground-muted text-lg md:text-xl max-w-2xl mx-auto mb-4">
-            Каждый проект — это кинематографичная история с характером и стилем
+            {t.services.subtitle}
           </p>
           
           {/* Gold gradient breathing line below subtitle */}
@@ -108,44 +100,11 @@ export function Services() {
                   <div className="hover-ring-1" />
                   <div className="hover-ring-2" />
                   
-                  {/* Background video or placeholder */}
-                  {service.title === "Social Media и Reels" ? (
+                  {/* Background video keyed by card index */}
+                  {servicePlaybackIds[index] ? (
                     <div className="absolute inset-0 overflow-hidden">
                       <mux-player
-                        playback-id="1Xb00owVniaQvFv4lKY6DOWkXbF5dxv3Vvy60101ziufZY"
-                        autoplay="muted"
-                        loop
-                        muted
-                        playsinline
-                        style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0", aspectRatio: "unset" } as any}
-                      />
-                    </div>
-                  ) : service.title === "Рекламные ролики" ? (
-                    <div className="absolute inset-0 overflow-hidden">
-                      <mux-player
-                        playback-id="1Aj00CmAc87EV6VJkmwBcFUA6Hmxr9VXEKJJV52wTiCE"
-                        autoplay="muted"
-                        loop
-                        muted
-                        playsinline
-                        style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0", aspectRatio: "unset" } as any}
-                      />
-                    </div>
-                  ) : service.title === "Промо для маркетплейсов" ? (
-                    <div className="absolute inset-0 overflow-hidden">
-                      <mux-player
-                        playback-id="EuFoWgbebfKudcfyfa1KjCQIlIaKSTKrAUDnFPCIvmA"
-                        autoplay="muted"
-                        loop
-                        muted
-                        playsinline
-                        style={{ "--media-object-fit": "cover", "--media-object-position": "center", "--controls": "none", "--media-background-color": "transparent", width: "100%", height: "100%", position: "absolute", inset: "0", aspectRatio: "unset" } as any}
-                      />
-                    </div>
-                  ) : service.title === "Анимационный контент" ? (
-                    <div className="absolute inset-0 overflow-hidden">
-                      <mux-player
-                        playback-id="hDM1Oi02UMRgCJu3U02YwvVRwtcKH2XAIj01501oLmLLQ02A"
+                        playback-id={servicePlaybackIds[index]}
                         autoplay="muted"
                         loop
                         muted

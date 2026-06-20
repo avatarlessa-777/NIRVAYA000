@@ -4,17 +4,25 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { TriangleIcon } from "./triangle-divider"
-
-const navLinks = [
-  { href: "#services", label: "Услуги" },
-  { href: "#portfolio", label: "Портфолио" },
-  { href: "#about", label: "О студии" },
-  { href: "#contacts", label: "Контакты" },
-]
+import { LanguageSwitcher } from "./language-switcher"
+import { useLanguage } from "@/lib/useLanguage"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const t = useLanguage((s) => s.t)
+  const init = useLanguage((s) => s.init)
+
+  const navLinks = [
+    { href: "#services", label: t.nav.services },
+    { href: "#portfolio", label: t.nav.portfolio },
+    { href: "#about", label: t.nav.about },
+    { href: "#contacts", label: t.nav.contacts },
+  ]
+
+  useEffect(() => {
+    init()
+  }, [init])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,13 +76,16 @@ export function Navigation() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <a
-            href="#contacts"
-            className="hidden md:block bg-saffron text-foreground px-5 py-2.5 text-sm font-medium rounded-sm transition-all duration-300 saffron-glow"
-          >
-            Обсудить проект
-          </a>
+          {/* Language Switcher + CTA Button */}
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher />
+            <a
+              href="#contacts"
+              className="bg-saffron text-foreground px-5 py-2.5 text-sm font-medium rounded-sm transition-all duration-300 saffron-glow"
+            >
+              {t.nav.cta}
+            </a>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -117,6 +128,13 @@ export function Navigation() {
                   {link.label}
                 </motion.a>
               ))}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45 }}
+              >
+                <LanguageSwitcher />
+              </motion.div>
               <motion.a
                 href="#contacts"
                 initial={{ opacity: 0, y: 20 }}
@@ -125,7 +143,7 @@ export function Navigation() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="mt-4 bg-saffron text-foreground px-8 py-3 text-lg font-medium rounded-sm"
               >
-                Обсудить проект
+                {t.nav.cta}
               </motion.a>
             </motion.div>
           </motion.div>

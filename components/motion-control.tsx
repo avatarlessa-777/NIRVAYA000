@@ -2,10 +2,12 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import { useLanguage } from "@/lib/useLanguage"
 
 export function MotionControl() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const t = useLanguage((s) => s.t)
 
   return (
     <section className="py-24 md:py-32 bg-background-secondary relative overflow-hidden">
@@ -46,7 +48,7 @@ export function MotionControl() {
                 color: "rgba(200,148,62,0.8)" 
               }}
             >
-              Motion Control
+              {t.motionControl.badge}
             </span>
             <motion.h2 
               initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
@@ -54,11 +56,10 @@ export function MotionControl() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="font-heading font-semibold text-2xl md:text-3xl lg:text-4xl uppercase tracking-[0.1em] leading-tight mb-5"
             >
-              Двигаемся так, как вы скажете
+              {t.motionControl.heading}
             </motion.h2>
             <p className="text-foreground/80 text-base md:text-lg leading-relaxed">
-              Нужен конкретный танец? Определённый жест? Точная пластика? 
-              Мы переносим любые движения в AI-видео — персонаж делает именно то, что вы задумали.
+              {t.motionControl.description}
             </p>
           </div>
         </motion.div>

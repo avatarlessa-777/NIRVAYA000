@@ -16,6 +16,7 @@ declare global {
 
 import { motion } from "framer-motion"
 import { useMemo, useState } from "react"
+import { useLanguage } from "@/lib/useLanguage"
 
 function generateParticles(count: number) {
   const particles = []
@@ -41,6 +42,7 @@ const playbackIds = [
 export function Hero() {
   const particles = useMemo(() => generateParticles(50), [])
   const [current, setCurrent] = useState(0)
+  const t = useLanguage((s) => s.t)
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
@@ -137,13 +139,13 @@ export function Hero() {
             href="#portfolio"
             className="inline-flex items-center justify-center px-8 py-3.5 border border-gold text-gold font-medium text-sm tracking-wide hover:bg-gold hover:text-[#0A0E1A] transition-all duration-300 rounded-sm"
           >
-            Смотреть работы
+            {t.hero.viewWork}
           </a>
           <a
             href="#contacts"
             className="inline-flex items-center justify-center px-8 py-3.5 bg-saffron text-foreground font-medium text-sm tracking-wide transition-all duration-300 saffron-glow rounded-sm"
           >
-            Обсудить проект
+            {t.hero.startProject}
           </a>
         </motion.div>
       </div>

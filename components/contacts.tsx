@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Mail, Send } from "lucide-react"
+import { useLanguage } from "@/lib/useLanguage"
 
 const socialLinks = [
   { name: "YouTube", href: "#" },
@@ -12,6 +13,7 @@ const socialLinks = [
 export function Contacts() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const t = useLanguage((s) => s.t)
 
   return (
     <section id="contacts" className="py-24 md:py-32 bg-[#0E1225] relative overflow-hidden">
@@ -70,7 +72,7 @@ export function Contacts() {
               className="h-px hidden md:block bg-gold"
             />
             <h2 className="font-heading font-semibold text-3xl md:text-5xl uppercase tracking-[0.12em] text-balance">
-              Готовы создать нечто мощное?
+              {t.contacts.heading}
             </h2>
             <motion.div
               initial={{ width: 0 }}
@@ -81,7 +83,7 @@ export function Contacts() {
           </div>
           
           <p className="font-heading font-normal text-foreground-muted text-lg md:text-xl mb-4">
-            Расскажите о вашем проекте — мы ответим в течение 12 часов
+            {t.contacts.subtitle}
           </p>
           
           <motion.div
