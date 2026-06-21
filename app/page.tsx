@@ -16,13 +16,14 @@ import {
   MandalaDivider, 
   VerticalLineDivider 
 } from "@/components/triangle-divider"
+import type { Language } from "@/lib/translations"
 
 
-export default function Home() {
+export default function Home({ forcedLang }: { forcedLang?: Language }) {
   return (
     <main className="relative">
       <CursorGlow />
-      <Navigation />
+      <Navigation forcedLang={forcedLang} />
       <Hero />
       <Marquee />
       <TriangleDotsDivider />
