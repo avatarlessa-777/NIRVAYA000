@@ -5,9 +5,9 @@ import { Send, X } from "lucide-react"
 import { useLanguage } from "@/lib/useLanguage"
 
 const contacts = [
-  { name: "Дмитрий", role: "Neuro Architect", telegram: "@saomalt", href: "https://t.me/saomalt" },
-  { name: "Виталий", role: "Creative Lead", telegram: "@vitdisco", href: "https://t.me/vitdisco" },
-  { name: "Владислав", role: "Post-production specialist", telegram: "@Kenitiro", href: "https://t.me/Kenitiro" },
+  { name: "Dmitry", role: "Neuro Architect", telegram: "@saomalt", href: "https://t.me/saomalt" },
+  { name: "Vitaly", role: "Creative Lead", telegram: "@vitdisco", href: "https://t.me/vitdisco" },
+  { name: "Vladislav", role: "Post-production specialist", telegram: "@Kenitiro", href: "https://t.me/Kenitiro" },
 ]
 
 export function ContactBubble() {
