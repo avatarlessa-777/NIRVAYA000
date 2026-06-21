@@ -6,8 +6,9 @@ import { Menu, X } from "lucide-react"
 import { TriangleIcon } from "./triangle-divider"
 import { LanguageSwitcher } from "./language-switcher"
 import { useLanguage } from "@/lib/useLanguage"
+import type { Language } from "@/lib/translations"
 
-export function Navigation() {
+export function Navigation({ forcedLang }: { forcedLang?: Language }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const t = useLanguage((s) => s.t)
@@ -21,8 +22,8 @@ export function Navigation() {
   ]
 
   useEffect(() => {
-    init()
-  }, [init])
+    init(forcedLang)
+  }, [init, forcedLang])
 
   useEffect(() => {
     const handleScroll = () => {

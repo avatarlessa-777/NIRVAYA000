@@ -19,7 +19,7 @@ interface LanguageState {
   lang: Language
   t: Translations
   setLang: (lang: Language) => void
-  init: () => void
+  init: (forced?: Language) => void
 }
 
 export const useLanguage = create<LanguageState>((set) => ({
@@ -31,7 +31,16 @@ export const useLanguage = create<LanguageState>((set) => ({
     }
     set({ lang, t: translations[lang] })
   },
-  init: () => {
+  init: (forced) => {
+    // A forced language (e.g. from the /en route) overrides detection
+    // and persists so the choice is remembered on later visits.
+    if (forced === "ru" || forced === "en") {
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(STORAGE_KEY, forced)
+      }
+      set({ lang: forced, t: translations[forced] })
+      return
+    }
     const lang = detectInitialLanguage()
     set({ lang, t: translations[lang] })
   },
