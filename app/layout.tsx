@@ -24,8 +24,8 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: 'NIRVAYA STUDIO — AI-видеопродакшн студия',
-  description: 'Кинематографичные клипы, рекламные ролики и промо-видео, созданные с помощью нейросетей нового поколения. От замысла к сиянию.',
+   title: 'NIRVAYA STUDIO — AI Video Production',
+  description: 'Cinematic music videos, commercials and promo content powered by next-gen AI. From vision to brilliance.',
   generator: 'v0.app',
   icons: {
     icon: [
